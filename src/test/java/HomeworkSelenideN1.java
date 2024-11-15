@@ -13,15 +13,21 @@ public class HomeworkSelenideN1 {
         // -Перейдите в раздел Wiki проекта
         $("#wiki-tab").click();
         // -Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
-        $(".js-wiki-sidebar-toggle-display").lastChild().
-                    lastChild().scrollTo().$("[type=button]").click(); // Show more pages...
+//        $(".js-wiki-sidebar-toggle-display").lastChild().
+//                    lastChild().scrollTo().$("[type=button]").click(); // Show more pages...
+
+        $("#wiki-pages-filter").setValue("SoftAssertions");         // чужое дз
+        $(".filterable-active").shouldHave(text("SoftAssertions")); //
+        $(byText("SoftAssertions")).click();                       // чужое дз
 
         $(".js-wiki-sidebar-toggle-display").lastChild().$$("li.wiki-more-pages")
                 .last().$("a").click(); // нажал на SoftAssertions
         // -Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
         $(".markdown-body")
-//                .$(byText("3. Using JUnit5 extend test class:")).scrollTo()
-                    .shouldHave(text("ExtendWith"));
+                .$(byText("3. Using JUnit5 extend test class:")).scrollTo()
+                     .shouldHave(text("3. Using JUnit5 extend test class:"));
+
+//                    .shouldHave(text("ExtendWith"));
 
         sleep(5000);
     }
