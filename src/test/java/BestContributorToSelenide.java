@@ -17,7 +17,7 @@ public class BestContributorToSelenide {
         $("div.Layout-sidebar").$(byText("Contributors"))
                 .closest(".BorderGrid-cell").$$("ul li").first().hover();
         // проверка: во всплывающем окне есть текст Andrei Solntsev
-        $$(".Popover").findBy(visible).shouldHave(text("zalupa"));
+        $$(".Popover").findBy(visible).shouldHave(text("Andrei Solntsev"));
         sleep(5000);
 
     }
